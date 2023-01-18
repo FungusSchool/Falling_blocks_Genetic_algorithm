@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "KfoIWU634xCr/iJXdHgmwAUUbS/UxUgBseQGPIBh7BRUtJfMCT7HVj2BbPSGq7DrV8yDdLSy3cNr/79dN+p6rw==",
+  "success": true,
+  "projectFilePath": "C:\\MyCode\\Falling_blocks_Genetic_algorithm\\Falling_blocks_Genetic_algorithm.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\strindin.linus\\.nuget\\packages\\raylib-cs\\3.7.0.1\\raylib-cs.3.7.0.1.nupkg.sha512",
+    "C:\\Users\\strindin.linus\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
