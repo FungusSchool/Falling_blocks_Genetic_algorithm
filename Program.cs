@@ -35,17 +35,15 @@ namespace Dodgers
             //--------------------------------------------------------------------------------------
 
             Raylib.InitWindow(windowW, windowH, "GeneticAlgorithm");
-            Raylib.SetTargetFPS(120);
+            Raylib.SetTargetFPS(240);
 
             // TODO: Infoga variabler och objekt här
 
-
-
             //AI Variables 
             int populationsSize = 100;
-            int generations = 20000;
-            int eliteSize = 3;
-            int mutationRate = 20;
+            int generations = 5000;
+            int eliteSize = 5;
+            int mutationRate = 40;
 
             AI lastBestGuy = new AI("0");
 
@@ -56,8 +54,8 @@ namespace Dodgers
 
             GeneratePopulation(populationsSize, ref population);
             // Run each generation
-            /*             for (motionMultiplier = ; motionMultiplier < 60; motionMultiplier++)
-                        { */
+                        /* for (motionMultiplier = 61; motionMultiplier < 101; motionMultiplier++)
+                        {  */
             for (var i = 0; i < generations; i++)
             {
                 //Console.WriteLine("1 Last best guy" + lastBestGuy.fitness);
@@ -112,10 +110,10 @@ namespace Dodgers
                     //Console.WriteLine("6 Last best guy" + lastBestGuy.fitness);
 
                     generationsList[i].Sort((x, y) => y.fitness.CompareTo(x.fitness));
-                    foreach (AI ai in generationsList[i])
+                   /*  foreach (AI ai in generationsList[i])
                     {
                         Console.WriteLine(ai.fitness + " points");
-                    }
+                    } */
                 }
                 //Console.WriteLine("Last Best Guy: " + lastBestGuy.fitness + " points" + " Genes: " + lastBestGuy.genes + " Moves: " + lastBestGuy.moves);
                 newGeneration(populationsSize, generations, eliteSize, mutationRate, ref population, ref matingPool, ref newPopulation, ref lastBestGuy);
@@ -328,7 +326,7 @@ namespace Dodgers
 
                     // Rita
                     //----------------------------------------------------------------------------------
-                    //Draw();
+                    Draw();
                     //----------------------------------------------------------------------------------
                 }
                 //Console.WriteLine("15 Last best guy" + lastBestGuy.fitness);
@@ -367,9 +365,62 @@ namespace Dodgers
             }
 
         }
+        /// <summary>
+        /// Menu to interact with the Program
+        /// </summary>
+        /// <param name="generationsList"></param>
         static void Menu(List<List<AI>> generationsList)
         {
+            Console.WriteLine("1. Run the program");
+            Console.WriteLine("2. Show and change the settings");
+            Console.WriteLine("3. Show the best specimen");
+            Console.WriteLine("4. Show the best specimen of a generation");
+            Console.WriteLine("5. Show the best generation");
+            Console.WriteLine("6. Show a specific generation");
+            bool correctInput = false;
+            while (!correctInput)
+            {
+            int choice = int.Parse(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    RunProgram(generationsList);
+                    correctInput = true;
+                    break;
+                case 2:
+                    Settings();
+                    correctInput = true;
+                    break;
+                case 3:
+                    ShowBestGuy(generationsList);
+                    correctInput = true;
+                    break;
+                case 4:
+                    ShowBestGuyOfAGeneration(generationsList);
+                    correctInput = true;
+                    break;
+                case 5:
+                    ShowBestGeneration(generationsList);
+                    correctInput = true;
+                    break;
+                case 6:
+                    ShowSpecificGeneration(generationsList);
+                    correctInput = true;
+                    break;
+                default:
+                    Console.WriteLine("Wrong input");
+                    correctInput = false;
+                    break;
+            }                
+            }
+        }
+        static void RunProgram(List<List<Ai>> generationsList)
+        {
+            Console.WriteLine("1. Run the program without visuals");
+            Console.WriteLine("2. Run the program with visuals");
+            Console.WriteLine("3. Run a specific gene");
 
         }
+
     }
 }
